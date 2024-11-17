@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+@font-face {
+    font-family: 'Stapel';
+    src: url('/fonts/StapelText-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+    --title-text-font-family: Stapel, -apple-system, BlinkMacSystemFont, Inter, Roboto, Helvetica, Arial, sans-serif;
+    --text-font-family: -apple-system, BlinkMacSystemFont, Inter, Roboto, Helvetica, Arial, sans-serif;
+    --white: #fff;
+    --page-header-title-color: var(--white);
+}
+h1 {
+    color: var(--page-header-title-color);
+    text-align: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    box-sizing: border-box;
+    font-family: var(--title-text-font-family);
+    font-size: 44px;
+    font-variant-numeric: lining-nums;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 10%;
+}
+.header-section {
+    background-color: #0c73fe;
+    padding-bottom: 10px;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    font-family: var(--text-font-family);
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 37px;
+    text-align: center;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+#destination {
+    appearance: none;
+    background-color: transparent;
+    border-radius: inherit;
+    cursor: pointer;
+    font-family: var(--text-font-family);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 19px;
+    min-height: 60px;
+    overflow: hidden;
+    padding: 9px 50px 9px 15px;
+    position: relative;
+    text-overflow: ellipsis;
+    transition-duration: .3s;
+    transition-property: border-radius;
+    transition-timing-function: cubic-bezier(.33,.96,.49,1.01);
+    white-space: nowrap;
+    width: 20%;
+    border-color: #0c73fe;
+    border-width: 2px;
+}
+
+#search-button {
+    background-color: #fa742d;
+    color: var(--white);
+    border-width: 0;
+    margin-left: 3px;
+    font-family: var(--text-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#flight-results {
+    display: none;
+}
