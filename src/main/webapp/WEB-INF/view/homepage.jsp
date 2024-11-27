@@ -2,7 +2,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расписание рейсов</title>
-    <link rel="stylesheet" href="/style.css?v=1.0">
+    <link rel="stylesheet" href="/style.css?v=1.1">
 </head>
 <body>
     <div class="header-section">
@@ -24,7 +24,7 @@
             <div id="flights-list"></div>
         </section>
 
-        <section id="admin-panel" style="display: none">
+        <section id="admin-panel", style="position: fixed; bottom: 10px; left: 10px;">
             <form action="/foradmin" method="get">
                 <button type="submit">Войти как админ</button>
             </form>
