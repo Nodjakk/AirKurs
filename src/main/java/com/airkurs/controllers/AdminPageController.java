@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class AdminPageController {
@@ -18,7 +16,8 @@ public class AdminPageController {
     private FlightService flightService;
 
     @GetMapping("foradmin")
-    public String getAdminPage() {
+    public String getAdminPage(Model model) {
+        model.addAttribute("flights", flightService.getAllFlights());
         return "adminpage";
     }
 
@@ -28,10 +27,17 @@ public class AdminPageController {
                              Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("bindingResult", bindingResult);
+            model.addAttribute("flights", flightService.getAllFlights());
             return "adminpage";
         }
 
         flightService.addFlight(flight);
         return "redirect:/foradmin?success=true";
+    }
+    @PostMapping("foradmin/delete-flight")
+    public String deleteFlight(@RequestParam("flight-id") Long flightId, Model model) {
+        flightService.removeFlight(flightId);
+        model.addAttribute("flights", flightService.getAllFlights());
+        return "adminpage";
     }
 }

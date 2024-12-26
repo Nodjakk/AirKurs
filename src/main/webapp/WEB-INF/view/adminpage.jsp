@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Расписание рейсов</title>
-  <link rel="stylesheet" href="/style.css?v=1.2">
+  <link rel="stylesheet" href="/style.css?v=1.7">
 </head>
 <body>
 <div class="header-section">
@@ -14,20 +14,20 @@
 <main>
   <section>
     <h2>Добавить рейс</h2>
-    <form action="/foradmin" method="post" id="add-form">
+    <form action="/foradmin" method="post" id="add-form" class="input_form">
       <div>
-        <label for="destination">Пункт назначения:</label>
-        <input type="text" id="destination" name="destination" required placeholder="Введите пункт назначения">
+        <label for="destination2">Пункт назначения:</label>
+        <input type="text" id="destination2" name="destination" required placeholder="Введите пункт назначения" class="input_form">
       </div>
 
       <div>
         <label for="number">Номер рейса:</label>
-        <input type="text" id="number" name="number" required placeholder="Введите номер рейса">
+        <input type="text" id="number" name="number" required placeholder="Введите номер рейса" class="input_form">
       </div>
 
       <div>
         <label for="aircraftType">Тип самолёта:</label>
-        <input type="text" id="aircraftType" name="aircraftType" required placeholder="Введите тип самолёта">
+        <input type="text" id="aircraftType" name="aircraftType" required placeholder="Введите тип самолёта" class="input_form">
       </div>
       <button type="submit">Добавить</button>
     </form>
@@ -43,9 +43,20 @@
       <span style="color: red;">${bindingResult.getFieldError('aircraftType').defaultMessage}</span>
     </c:if>
     <br>
-    <c:if test="${bindingResult.hasErrors()}">
-      <span style="color: red;">${bindingResult.errorCount}</span>
-    </c:if>
+  </section>
+  <section id="all-flights">
+    Все рейсы:
+    <c:forEach items="${flights}" var="flight">
+      <form action="/foradmin/delete-flight" method="post" id="flight">
+        <label for="flight-id"></label>
+        <input type="hidden" id="flight-id" name="flight-id" value="${flight.id}"/>
+      <p><strong>Рейс:</strong> ${flight.number}</p>
+      <p><strong>Пункт назначения:</strong> ${flight.destination}</p>
+      <p><strong>Тип самолёта:</strong> ${flight.aircraftType}</p>
+      <button type="submit">Удалить</button>
+        <hr>
+      </form>
+    </c:forEach>
   </section>
   <section id="go-back-panel" style="position: fixed; bottom: 10px; left: 10px;">
     <form action="/" method="get">

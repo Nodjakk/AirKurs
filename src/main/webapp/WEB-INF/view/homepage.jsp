@@ -2,7 +2,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Расписание рейсов</title>
-    <link rel="stylesheet" href="/style.css?v=1.1">
+    <link rel="stylesheet" href="/style.css?v=1.2">
 </head>
 <body>
     <div class="header-section">
@@ -13,7 +13,7 @@
     <main>
         <section>
             <h2>Найти рейс по пункту назначения</h2>
-            <form action="/" method="get" id="search-form">
+            <form action="/" method="get" id="search-form" class="input_form">
                 <label for="destination"></label><input type="text" id="destination" name="destination" required placeholder="Введите пункт назначения">
                 <button type="submit" id="search-button">Поиск</button>
             </form>

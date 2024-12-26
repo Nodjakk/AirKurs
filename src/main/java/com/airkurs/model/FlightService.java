@@ -30,7 +30,7 @@ public class FlightService {
         destination = destination.toLowerCase();
         for (Flight flight : flights) {
             String flightDestination = flight.getDestination();
-            if (flightDestination.toLowerCase().equals(destination)) {
+            if (flightDestination.toLowerCase().contains(destination)) {
                 filteredFlights.add(flight);
             }
         }
